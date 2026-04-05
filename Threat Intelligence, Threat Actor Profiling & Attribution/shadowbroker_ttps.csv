@@ -1,0 +1,19 @@
+Campaign_ID,Date,Tactic,Technique,Technique_ID,Frequency,Description,Tools_Used,Indicators
+SB_2023_001,2023-01-15,Initial Access,Spearphishing Link,T1566.002,High,Phishing emails with malicious links to payload server,Custom phishing framework,Email headers with spoofed sender
+SB_2023_001,2023-01-15,Execution,PowerShell,T1059.001,High,PowerShell scripts for payload execution and C2 communication,PowerShell v5.0,PowerShell command history
+SB_2023_001,2023-01-15,Persistence,Registry Run Keys,T1547.001,Medium,Registry modifications for persistence across reboots,Registry Editor,HKLM\Software\Microsoft\Windows\Run entries
+SB_2023_001,2023-01-15,Defense Evasion,Obfuscated Files or Information,T1027,High,Payload obfuscation using custom encryption,Custom XOR encryption,Encrypted binary files
+SB_2023_002,2023-02-01,Defense Evasion,Process Injection,T1055,High,Code injection into legitimate Windows processes,Custom injector tool,Injected process memory
+SB_2023_002,2023-02-01,Credential Access,Credential Dumping,T1003,Medium,Extraction of credentials from LSASS memory,Mimikatz variant,LSASS process access logs
+SB_2023_002,2023-02-01,Credential Access,Input Capture,T1056.004,Medium,Keylogging for credential capture,Custom keylogger,Keyboard event logs
+SB_2023_003,2023-03-10,Discovery,Network Service Scanning,T1046,High,Internal network reconnaissance using port scanning,Nmap/custom scanner,Network traffic on ports 445 139 3389
+SB_2023_003,2023-03-10,Discovery,System Information Discovery,T1082,High,Gathering system information for targeting,systeminfo command,System information queries
+SB_2023_003,2023-03-10,Lateral Movement,Pass the Hash,T1550.002,High,Using stolen credentials for lateral movement,PsExec variant,SMB authentication attempts
+SB_2023_003,2023-03-10,Lateral Movement,Remote Services,T1021.002,Medium,RDP exploitation for lateral movement,RDP protocol,RDP connection logs
+SB_2023_004,2023-04-05,Exfiltration,Exfiltration Over C2,T1041,High,Data exfiltration through C2 channel,Custom C2 protocol,C2 traffic to 203.0.113.45
+SB_2023_004,2023-04-05,Exfiltration,Data Compressed,T1002,Medium,Compression of data before exfiltration,7-Zip/WinRAR,Compressed archive files
+SB_2023_004,2023-04-05,Command and Control,Application Layer Protocol,T1071.001,High,C2 communication over HTTP/HTTPS,Custom HTTP client,HTTP POST requests to C2
+SB_2023_005,2023-05-12,Persistence,Scheduled Task,T1053.005,Medium,Scheduled tasks for persistence and execution,Task Scheduler,Scheduled task creation events
+SB_2023_005,2023-05-12,Execution,Scheduled Task,T1053.005,Medium,Scheduled tasks for periodic malware execution,Task Scheduler,Task execution logs
+SB_2023_006,2023-06-08,Initial Access,Supply Chain Compromise,T1195.002,Low,Compromised software updates as attack vector,Trojanized update,Modified update binary
+SB_2023_006,2023-06-08,Persistence,DLL Search Order Hijacking,T1574.001,Medium,DLL hijacking for persistence,Malicious DLL,DLL files in system directories

